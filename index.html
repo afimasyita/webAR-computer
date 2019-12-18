@@ -53,7 +53,7 @@
             <audio id="sound" src="./sound/samba_soryy.mp3" preload="auto"></audio>
         </a-assets>
           
-      <a-marker preset="custom" type="pattern" url="pattern-patt/pattern-A.patt">
+      <a-marker preset="custom" type="pattern" url="pattern/right_foot.patt">
           <a-entity
               position="0 0 0"
               id="animated-model"
@@ -63,7 +63,7 @@
           </a-entity>
       </a-marker>
 
-      <a-marker preset="custom" type="pattern" url="pattern-patt/pattern-A_1.patt">
+      <a-marker preset="custom" type="pattern" url="pattern/left_foot.patt">
           <a-entity
               position="0 0 0"
               id="animated-model2"
@@ -73,7 +73,7 @@
           </a-entity>
       </a-marker>
 
-      <a-marker preset="custom" type="pattern" url="pattern-patt/pattern-M.patt">
+      <a-marker preset="custom" type="pattern" url="pattern/pelvis.patt">
           <a-entity
               position="0 0 0"
               id="animated-model3"
@@ -83,7 +83,7 @@
           </a-entity>
       </a-marker>
 
-      <a-marker preset="custom" type="pattern" url="pattern-patt/pattern-F.patt">
+      <a-marker preset="custom" type="pattern" url="pattern/left_arm.patt">
           <a-entity
               position="0 0 0"
               id="animated-model4"
@@ -93,7 +93,7 @@
           </a-entity>
       </a-marker>
 
-      <a-marker preset="custom" type="pattern" url="pattern-patt/pattern-T.patt">
+      <a-marker preset="custom" type="pattern" url="pattern/left_hand.patt">
           <a-entity
               position="0 0 0"
               id="animated-model5"
@@ -103,7 +103,7 @@
           </a-entity>
       </a-marker>
 
-      <a-marker preset="custom" type="pattern" url="pattern-patt/pattern-Y.patt">
+      <a-marker preset="custom" type="pattern" url="pattern/left_leg.patt">
           <a-entity
               position="0 0 0"
               id="animated-model6"
@@ -113,7 +113,7 @@
           </a-entity>
       </a-marker>
 
-      <a-marker preset="custom" type="pattern" url="pattern-patt/pattern-I.patt">
+      <a-marker preset="custom" type="pattern" url="pattern/right_arm.patt">
           <a-entity
               position="0 0 0"
               id="animated-model7"
@@ -123,7 +123,7 @@
           </a-entity>
       </a-marker>
 
-      <a-marker preset="custom" type="pattern" url="pattern-patt/pattern-K.patt">
+      <a-marker preset="custom" type="pattern" url="pattern/right_hand.patt">
           <a-entity
               position="0 0 0"
               id="animated-model8"
@@ -133,7 +133,7 @@
           </a-entity>
       </a-marker>
 
-      <a-marker preset="custom" type="pattern" url="pattern-patt/pattern-J.patt">
+      <a-marker preset="custom" type="pattern" url="pattern/right_leg.patt">
           <a-entity
               position="0 0 0"
               id="animated-model9"
@@ -143,7 +143,7 @@
           </a-entity>
       </a-marker>
 
-      <a-marker preset="custom" type="pattern" url="pattern-patt/pattern-S.patt">
+      <a-marker preset="custom" type="pattern" url="pattern/ribs.patt">
           <a-entity
               position="0 0 0"
               id="animated-model10"
@@ -153,12 +153,12 @@
           </a-entity>
       </a-marker>
 
-      <a-marker preset="custom" type="pattern" url="pattern-patt/pattern-U.patt">
+      <a-marker preset="custom" type="pattern" url="pattern/skull.patt">
           <a-entity
               position="0 0 0"
               id="animated-model11"
               gltf-model="#animated-asset11"
-              scale="2.5 2.5 2.5"
+              scale="2 2 2"
 	      animation="property: rotation; dur: 10000; to: 0 360 0; easing: linear; loop: true">
 	  </a-entity>
       </a-marker>
@@ -197,7 +197,7 @@
 	AFRAME.registerComponent('soundhandler', {
 	    tick: function () {
 		   var entity = document.querySelector('[sound]');
-		 if (document.querySelector('a-marker').object3D.visible == true) {
+		 if (document.querySelector('#animated-asset12').object3D.visible == true) {
 		    entity.components.sound.playSound();
 		} else {
 		    entity.components.sound.pauseSound();
