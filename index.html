@@ -2,7 +2,7 @@
 <html>
   <head>
     <meta charset="utf-8">
-    <title>ScicARds</title>
+    <title>ScicARdsComp</title>
    
   </head>
 
@@ -16,7 +16,7 @@
   <body style='margin : 0px; overflow: hidden;'>
     <a-scene embedded arjs='sourceType: webcam; debugUIEnabled: false;'>
         <a-assets>
-            <a-asset-item id="animated-asset" src="gltf/right_foot.gltf"></a-asset-item>
+            <a-asset-item id="animated-asset" src="gltf/motherboard.glb"></a-asset-item>
             <a-asset-item id="animated-asset2" src="gltf/left_foot.gltf"></a-asset-item>
             <a-asset-item id="animated-asset3" src="gltf/pelvis.gltf"></a-asset-item>
             <a-asset-item id="animated-asset4" src="gltf/left_arm.gltf"></a-asset-item>
@@ -29,13 +29,14 @@
             <a-asset-item id="animated-asset11" src="gltf/skull.gltf"></a-asset-item>
             <a-asset-item id="animated-asset12" src="gltf/dancing_skeleton.glb"></a-asset-item>
 	    <a-asset-item id="animated-asset13" src="gltf/usm.glb"></a-asset-item>
-		<audio id="sound" src="sound/samba_soryy.mp3"></audio>
+		<!--<audio id="sound" src="sound/samba_soryy.mp3"></audio>-->
         </a-assets>
-	<a-assets>
+	    
+	<!--<a-assets>
             <audio id="sound" src="./sound/samba_soryy.mp3" preload="auto"></audio>
-        </a-assets>
+        </a-assets>-->
           
-      <a-marker preset="custom" type="pattern" url="./pattern/right_foot.patt">
+      <a-marker preset="custom" type="pattern" url="./pattern-patt/pattern-motherboard.patt">
           <a-entity
               position="0 0 0"
               id="animated-model"
