@@ -1,13 +1,13 @@
 <!DOCTYPE html>
 <html>
-  <head>
-    <meta charset="utf-8">
-	  
-    <title>ScicARdsComp</title>
-   
+  <head>  
+    <title>Hardware AR-Comp</title>
+    	<meta charset="utf-8">
+    	<meta http-equiv="X-UA-Compatible" content="IE=edge">
   </head>
 	<script src="https://aframe.io/releases/1.0.4/aframe.min.js"></script>
         <script src="https://raw.githack.com/AR-js-org/AR.js/master/aframe/build/aframe-ar.js"></script>
+	
 	<!--<script src="https://raw.githack.com/fcor/arjs-gestures/master/dist/gestures.js"></script>-->
 	
 	<!-- <script src="https://aframe.io/releases/0.9.2/aframe.min.js"></script>
@@ -16,10 +16,11 @@
 	<!-- of the 3D model of the robot -->
 	<!--<script src="https://cdn.rawgit.com/jeromeetienne/AR.js/master/aframe/build/aframe-ar.min.js"></script>-->
 	
-	<!--<script src="https://rawgit.com/donmccurdy/aframe-extras/master/dist/aframe-extras.loaders.min.js"></script>-->
+	<script src="https://rawgit.com/donmccurdy/aframe-extras/master/dist/aframe-extras.loaders.min.js"></script>
 	
 	<!-- import events.js script -->
     	<!--<script src="https://rawgit.com/nicolocarpignoli/nicolocarpignoli.github.io/master/ar-click-events/events.js"></script>-->
+	
 	<script src="gesture-detector.js"></script>
     	<script src="gesture-handler.js"></script>
 	
@@ -40,6 +41,7 @@
             <a-asset-item id="animated-asset4" src="gltf/videocard.glb"></a-asset-item>
             <a-asset-item id="animated-asset5" src="gltf/ssd.glb"></a-asset-item>
             <a-asset-item id="animated-asset6" src="gltf/powersupply.glb"></a-asset-item>
+		
             <!--<a-asset-item id="animated-asset7" src="gltf/right_arm.gltf"></a-asset-item>
             <a-asset-item id="animated-asset8" src="gltf/right_hand.gltf"></a-asset-item>
             <a-asset-item id="animated-asset9" src="gltf/right_leg.gltf"></a-asset-item>
@@ -47,15 +49,13 @@
             <a-asset-item id="animated-asset11" src="gltf/skull.gltf"></a-asset-item>
             <a-asset-item id="animated-asset12" src="gltf/dancing_skeleton.glb"></a-asset-item>
 	    <a-asset-item id="animated-asset13" src="gltf/usm.glb"></a-asset-item>
-	<audio id="sound" src="sound/samba_soryy.mp3"></audio>-->
+	    <audio id="sound" src="sound/samba_soryy.mp3"></audio>-->
         </a-assets>
 	    
 	<!--<a-assets>
             <audio id="sound" src="./sound/samba_soryy.mp3" preload="auto"></audio>
         </a-assets>-->
-      
-<!--<a-marker markerhandler emitevents="true" cursor="rayOrigin: mouse" id="animated-marker" type='barcode' value='6'>-->
-		
+      		
       <a-marker preset="custom" type="pattern" url="./pattern-patt/pattern-motherboard.patt" raycaster="objects: .clickable" emitevents="true"
         cursor="fuse: false; rayOrigin: mouse;">
           <a-entity
@@ -68,53 +68,68 @@
           </a-entity>
       </a-marker>
 
-      <a-marker preset="custom" type="pattern" url="./pattern-patt/pattern-ram.patt">
+      <a-marker preset="custom" type="pattern" url="./pattern-patt/pattern-ram.patt" raycaster="objects: .clickable" emitevents="true"
+        cursor="fuse: false; rayOrigin: mouse;">
+      <!--<a-marker preset="custom" type="pattern" url="./pattern-patt/pattern-ram.patt">-->
           <a-entity
               position="0 0 0"
               id="animated-model2"
               gltf-model="#animated-asset2"
-              scale="0.50 0.50 0.50"
-	      animation="property: rotation; dur: 10000; to: 360 0 0; easing: linear; loop: true">
+              scale="0.05 0.05 0.05"
+	      class="clickable"
+	      gesture-handler>
           </a-entity>
       </a-marker>
 
-      <a-marker preset="custom" type="pattern" url="./pattern-patt/pattern-cpu.patt">
+     <a-marker preset="custom" type="pattern" url="./pattern-patt/pattern-cpu.patt" raycaster="objects: .clickable" emitevents="true"
+        cursor="fuse: false; rayOrigin: mouse;">
+      <!--<a-marker preset="custom" type="pattern" url="./pattern-patt/pattern-cpu.patt">-->
           <a-entity
               position="0 0 0"
               id="animated-model3"
               gltf-model="#animated-asset3"
-              scale="0.50 0.50 0.50"
-	      animation="property: rotation; dur: 10000; to: 360 0 0; easing: linear; loop: true">
+              scale="0.05 0.05 0.05"
+	      class="clickable"
+	      gesture-handler>
           </a-entity>
       </a-marker>
 
-      <a-marker preset="custom" type="pattern" url="./pattern-patt/pattern-videocard.patt">
+      <a-marker preset="custom" type="pattern" url="./pattern-patt/pattern-videocard.patt" raycaster="objects: .clickable" emitevents="true"
+        cursor="fuse: false; rayOrigin: mouse;">
+      <!--<a-marker preset="custom" type="pattern" url="./pattern-patt/pattern-videocard.patt">-->
           <a-entity
               position="0 0 0"
               id="animated-model4"
               gltf-model="#animated-asset4"
-              scale="0.50 0.50 0.50"
-	      animation="property: rotation; dur: 10000; to: 360 0 0; easing: linear; loop: true">
+              scale="0.05 0.05 0.05"
+	      class="clickable"
+	      gesture-handler>
           </a-entity>
       </a-marker>
 
-      <a-marker preset="custom" type="pattern" url="./pattern-patt/pattern-ssd.patt">
+      <a-marker preset="custom" type="pattern" url="./pattern-patt/pattern-ssd.patt" raycaster="objects: .clickable" emitevents="true"
+        cursor="fuse: false; rayOrigin: mouse;">
+      <!--<a-marker preset="custom" type="pattern" url="./pattern-patt/pattern-ssd.patt">-->
           <a-entity
               position="0 0 0"
               id="animated-model5"
               gltf-model="#animated-asset5"
-              scale="0.50 0.50 0.50"
-	      animation="property: rotation; dur: 10000; to: 360 0 0; easing: linear; loop: true">
+              scale="0.05 0.05 0.05"
+	      class="clickable"
+	      gesture-handler>
           </a-entity>
       </a-marker>
 
-      <a-marker preset="custom" type="pattern" url="./pattern-patt/pattern-powersupply.patt">
+      <a-marker preset="custom" type="pattern" url="./pattern-patt/pattern-powersupply.patt" raycaster="objects: .clickable" emitevents="true"
+        cursor="fuse: false; rayOrigin: mouse;">
+      <!--<a-marker preset="custom" type="pattern" url="./pattern-patt/pattern-powersupply.patt">-->
           <a-entity
               position="0 0 0"
               id="animated-model6"
               gltf-model="#animated-asset6"
-              scale="0.50 0.50 0.50"
-	      animation="property: rotation; dur: 10000; to: 360 0 0; easing: linear; loop: true">
+              scale="0.05 0.05 0.05"
+	      class="clickable"
+	      gesture-handler>
           </a-entity>
       </a-marker>
 
