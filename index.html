@@ -15,9 +15,19 @@
 	
 	<!-- import events.js script -->
     	<script src="https://rawgit.com/nicolocarpignoli/nicolocarpignoli.github.io/master/ar-click-events/events.js"></script>
-
+	<script src="gesture-detector.js"></script>
+    	<script src="gesture-handler.js"></script>
+	
 <body style='margin : 0px; overflow: hidden;'>
-    <a-scene embedded arjs='sourceType: webcam; debugUIEnabled: false;'>
+   <!-- <a-scene embedded arjs='sourceType: webcam; debugUIEnabled: false;'>-->
+	<a-scene
+	      arjs
+	      embedded
+	      renderer="logarithmicDepthBuffer: true;"
+	      vr-mode-ui="enabled: false"
+	      gesture-detector
+	      id="scene"
+    	>
         <a-assets>
             <a-asset-item id="animated-asset" src="gltf/motherboard.glb"></a-asset-item>
             <a-asset-item id="animated-asset2" src="gltf/ram.glb"></a-asset-item>
@@ -39,14 +49,17 @@
             <audio id="sound" src="./sound/samba_soryy.mp3" preload="auto"></audio>
         </a-assets>-->
       
-<a-marker markerhandler emitevents="true" cursor="rayOrigin: mouse" id="animated-marker" type='barcode' value='6'>    
-      <a-marker preset="custom" type="pattern" url="./pattern-patt/pattern-motherboard.patt">
+<!--<a-marker markerhandler emitevents="true" cursor="rayOrigin: mouse" id="animated-marker" type='barcode' value='6'>-->
+		
+      <a-marker preset="custom" type="pattern" url="./pattern-patt/pattern-motherboard.patt" raycaster="objects: .clickable" emitevents="true"
+        cursor="fuse: false; rayOrigin: mouse;">
           <a-entity
               position="0 0 0"
               id="animated-model"
               gltf-model="#animated-asset"
-              scale="0.50 0.50 0.50"
-	      animation="property: rotation; dur: 10000; to: 360 0 0; easing: linear; loop: true">
+              scale="0.05 0.05 0.05"
+	      class="clickable"
+	      gesture-handler>
           </a-entity>
       </a-marker>
 
