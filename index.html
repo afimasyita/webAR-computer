@@ -1,218 +1,96 @@
-<!DOCTYPE html>
+!DOCTYPE html>
 <html>
-   <head>  
-	   
-	   <title> AR-Comp </title>
-	   
-	<script src="https://aframe.io/releases/1.0.4/aframe.min.js"></script>
-        <script src="https://raw.githack.com/AR-js-org/AR.js/master/aframe/build/aframe-ar.js"></script>
-	  
-	<script src="https://raw.githack.com/fcor/arjs-gestures/master/dist/gestures.js"></script>
-	
-	<!--<script src="gesture-detector.js"></script>
-    	<script src="gesture-handler.js"></script>-->
-	
-	<!--<link rel="stylesheet" href="./css/style.css">-->
- 	<!-- add splashscreen start
-	<script>
-	window.onload = function(){    
-		setTimeout(function(){
-			var resizeEvent = window.document.createEvent('UIEvents'); 
-			resizeEvent.initUIEvent('resize', true, false, window, 0); 
-			window.dispatchEvent(resizeEvent);
-		}, 3000);
-	};	
-	</script>
-    	end of splashscreen -->
-   </head>
-	
-<body style='margin : 0px; overflow: hidden;'>
-   <!--<a-scene embedded arjs='sourceType: webcam; debugUIEnabled: false;'>-->
-	<a-scene
-	      arjs
-	      embedded
-	      renderer="logarithmicDepthBuffer: true;"
-	      vr-mode-ui="enabled: false"
-	      gesture-detector
-	      id="scene"
-    	>
-		
-	<!--<div class="overlay">
-       	  <div id="button">
-            <button>START</button>
-          </div>
-        </div>--> 
-		
+  <head>
+    <meta charset="utf-8">
+    <title>AR</title>
+   
+  </head>
+
+ 
+	 <script src="https://aframe.io/releases/0.9.2/aframe.min.js"></script>
+	<!--<script src="https://unpkg.com/aframe-fps-counter-component/dist/aframe-fps-counter-component.min.js"></script>-->
+	<!-- This is to load the A-frame extras, that contain the required components that are used to show the animations -->
+	<!-- of the 3D model of the robot -->
+	<script src="https://cdn.rawgit.com/jeromeetienne/AR.js/master/aframe/build/aframe-ar.min.js"></script>
+	<script src="https://rawgit.com/donmccurdy/aframe-extras/master/dist/aframe-extras.loaders.min.js"></script>	
+  <body style='margin : 0px; overflow: hidden;'>
+    <a-scene embedded arjs='sourceType: webcam; debugUIEnabled: false;'>
         <a-assets>
-            <a-asset-item id="animated-asset1" src="gltf/motherboard.glb"></a-asset-item>
+            <a-asset-item id="animated-asset" src="gltf/motherboard.glb"></a-asset-item>
             <a-asset-item id="animated-asset2" src="gltf/ram.glb"></a-asset-item>
             <a-asset-item id="animated-asset3" src="gltf/cpu.glb"></a-asset-item>
             <a-asset-item id="animated-asset4" src="gltf/videocard.glb"></a-asset-item>
             <a-asset-item id="animated-asset5" src="gltf/ssd.glb"></a-asset-item>
             <a-asset-item id="animated-asset6" src="gltf/powersupply.glb"></a-asset-item>
-	    <a-asset-item id="animated-asset7" src="gltf/pc.glb"></a-asset-item>
-	    <a-asset-item id="animated-asset8" src="gltf/gpu.glb"></a-asset-item>
-	    <a-asset-item id="animated-asset9" src="gltf/cooler.glb"></a-asset-item>
-	    <a-asset-item id="animated-asset10" src="gltf/dvd-drive.gltf"></a-asset-item>
-	    <a-asset-item id="animated-asset11" src="gltf/pc-desk.glb"></a-asset-item>
-
-            <!--<a-asset-item id="animated-asset7" src="gltf/right_arm.gltf"></a-asset-item>
-            <a-asset-item id="animated-asset8" src="gltf/right_hand.gltf"></a-asset-item>
-            <a-asset-item id="animated-asset9" src="gltf/right_leg.gltf"></a-asset-item>
-            <a-asset-item id="animated-asset10" src="gltf/ribs.gltf"></a-asset-item>
-            <a-asset-item id="animated-asset11" src="gltf/skull.gltf"></a-asset-item>
-            <a-asset-item id="animated-asset12" src="gltf/dancing_skeleton.glb"></a-asset-item>
-	    <a-asset-item id="animated-asset13" src="gltf/usm.glb"></a-asset-item>
-	    <audio id="sound" src="sound/samba_soryy.mp3"></audio>-->
+            <a-asset-item id="animated-asset7" src="gltf/pc.glb"></a-asset-item>
+            <a-asset-item id="animated-asset8" src="gltf/gpu.glb"></a-asset-item>
+            <a-asset-item id="animated-asset9" src="gltf/cooler.glb"></a-asset-item>
+            <a-asset-item id="animated-asset10" src="gltf/dvd-drive.gltf"></a-asset-item>
+            <a-asset-item id="animated-asset11" src="gltf/pc-desk.glb"></a-asset-item>
+           
         </a-assets>
-	    
-	<!--<a-assets>
-            <audio id="sound" src="./sound/samba_soryy.mp3" preload="auto"></audio>
-        </a-assets>-->
-      		
-      <a-marker preset="custom" type="pattern" url="./pattern-patt/pattern-motherboard.patt" raycaster="objects: .clickable" emitevents="true"
-        cursor="fuse: false; rayOrigin: mouse;">
+          
+      <a-marker preset="custom" type="pattern" url="./pattern-patt/pattern-motherboard.patt">
           <a-entity
               position="0 0 0"
-              id="animated-model1"
-              gltf-model="#animated-asset1"
-              scale="0.25 0.25 0.25"
-	      class="clickable"
-	      gesture-handler>
+              id="animated-model"
+              gltf-model="#animated-asset"
+              scale="1.00 1.00 1.00"
+	      animation="property: rotation; dur: 10000; to: 0 360 0; easing: linear; loop: true">
           </a-entity>
       </a-marker>
 
-      <a-marker preset="custom" type="pattern" url="./pattern-patt/pattern-ram.patt" raycaster="objects: .clickable" emitevents="true"
-        cursor="fuse: false; rayOrigin: mouse;">
-      <!--<a-marker preset="custom" type="pattern" url="./pattern-patt/pattern-ram.patt">-->
+      <a-marker preset="custom" type="pattern" url="./pattern-patt/pattern-ram.patt">
           <a-entity
               position="0 0 0"
               id="animated-model2"
               gltf-model="#animated-asset2"
-              scale="0.01 0.01 0.01"
-	      class="clickable"
-	      gesture-handler>
+              scale="1.00 1.00 1.00"
+	      animation="property: rotation; dur: 10000; to: 0 360 0; easing: linear; loop: true">
           </a-entity>
       </a-marker>
 
-     <a-marker preset="custom" type="pattern" url="./pattern-patt/pattern-cpu.patt" raycaster="objects: .clickable" emitevents="true"
-        cursor="fuse: false; rayOrigin: mouse;">
-      <!--<a-marker preset="custom" type="pattern" url="./pattern-patt/pattern-cpu.patt">-->
+      <a-marker preset="custom" type="pattern" url="./pattern-patt/pattern-cpu.patt">
           <a-entity
               position="0 0 0"
               id="animated-model3"
               gltf-model="#animated-asset3"
-              scale="0.25. 0.25 0.25"
-	      class="clickable"
-	      gesture-handler>
+              scale="1.00 1.00 1.00"
+	      animation="property: rotation; dur: 10000; to: 0 360 0; easing: linear; loop: true">
           </a-entity>
       </a-marker>
 
-      <a-marker preset="custom" type="pattern" url="./pattern-patt/pattern-videocard.patt" raycaster="objects: .clickable" emitevents="true"
-        cursor="fuse: false; rayOrigin: mouse;">
-      <!--<a-marker preset="custom" type="pattern" url="./pattern-patt/pattern-videocard.patt">-->
+      <a-marker preset="custom" type="pattern" url="./pattern-patt/pattern-videocard.patt">
           <a-entity
               position="0 0 0"
               id="animated-model4"
               gltf-model="#animated-asset4"
-              scale="0.05 0.05 0.05"
-	      class="clickable"
-	      gesture-handler>
+              scale="1.00 1.00 1.00"
+	      animation="property: rotation; dur: 10000; to: 0 360 0; easing: linear; loop: true">
           </a-entity>
       </a-marker>
 
-      <a-marker preset="custom" type="pattern" url="./pattern-patt/pattern-ssd.patt" raycaster="objects: .clickable" emitevents="true"
-        cursor="fuse: false; rayOrigin: mouse;">
-      <!--<a-marker preset="custom" type="pattern" url="./pattern-patt/pattern-ssd.patt">-->
+      <a-marker preset="custom" type="pattern" url="./pattern-patt/pattern-ssd.patt">
           <a-entity
               position="0 0 0"
               id="animated-model5"
               gltf-model="#animated-asset5"
-              scale="0.05 0.05 0.05"
-	      class="clickable"
-	      gesture-handler>
+              scale="1.00 1.00 1.00"
+	      animation="property: rotation; dur: 10000; to: 0 360 0; easing: linear; loop: true">
           </a-entity>
       </a-marker>
 
-      <a-marker preset="custom" type="pattern" url="./pattern-patt/pattern-powersupply.patt" raycaster="objects: .clickable" emitevents="true"
-        cursor="fuse: false; rayOrigin: mouse;">
-      <!--<a-marker preset="custom" type="pattern" url="./pattern-patt/pattern-powersupply.patt">-->
+      <a-marker preset="custom" type="pattern" url="./pattern-patt/pattern-powersupply.patt">
           <a-entity
               position="0 0 0"
               id="animated-model6"
               gltf-model="#animated-asset6"
-              scale="0.25 0.25 0.25"
-	      class="clickable"
-	      gesture-handler>
+              scale="1.00 1.00 1.00"
+	      animation="property: rotation; dur: 10000; to: 0 360 0; easing: linear; loop: true">
           </a-entity>
       </a-marker>
-	
-	<a-marker preset="custom" type="pattern" url="./pattern-patt/pattern-pc.patt" raycaster="objects: .clickable" emitevents="true"
-		cursor="fuse: false; rayOrigin: mouse;">
-	      <!--<a-marker preset="custom" type="pattern" url="./pattern-patt/pattern-powersupply.patt">-->
-		  <a-entity
-		      position="0 0 0"
-		      id="animated-model7"
-		      gltf-model="#animated-asset7"
-		      scale="0.25 0.25 0.25"
-		      class="clickable"
-		      gesture-handler>
-		  </a-entity>
-	      </a-marker>		
 
-	<a-marker preset="custom" type="pattern" url="./pattern-patt/pattern-gpu.patt" raycaster="objects: .clickable" emitevents="true"
-        	cursor="fuse: false; rayOrigin: mouse;">
-      		<!--<a-marker preset="custom" type="pattern" url="./pattern-patt/pattern-powersupply.patt">-->
-		  <a-entity
-		      position="0 0 0"
-		      id="animated-model8"
-		      gltf-model="#animated-asset8"
-		      scale="0.25 0.25 0.25"
-		      class="clickable"
-		      gesture-handler>
-		  </a-entity>
-      	</a-marker>
-
-        <a-marker preset="custom" type="pattern" url="./pattern-patt/pattern-cooler.patt" raycaster="objects: .clickable" emitevents="true"
-        	cursor="fuse: false; rayOrigin: mouse;">
-      		<!--<a-marker preset="custom" type="pattern" url="./pattern-patt/pattern-cooler.patt">-->
-		  <a-entity
-		      position="0 0 0"
-		      id="animated-model9"
-		      gltf-model="#animated-asset9"
-		      scale="1.75 1.75 1.75"
-		      class="clickable"
-		      gesture-handler>
-		  </a-entity>
-      	</a-marker>
-
-        <a-marker preset="custom" type="pattern" url="./pattern-patt/pattern-dvddrive.patt" raycaster="objects: .clickable" emitevents="true"
-        	cursor="fuse: false; rayOrigin: mouse;">
-      		<!--<a-marker preset="custom" type="pattern" url="./pattern-patt/pattern-dvddrive.patt">-->
-		  <a-entity
-		      position="0 0 0"
-		      id="animated-model10"
-		      gltf-model="#animated-asset10"
-		      scale="1.50 1.50 1.50"
-		      class="clickable"
-		      gesture-handler>
-		  </a-entity>
-      	</a-marker>
-
-	<a-marker preset="custom" type="pattern" url="./pattern-patt/pc-desk.patt" raycaster="objects: .clickable" emitevents="true"
-        	cursor="fuse: false; rayOrigin: mouse;">
-      		<!--<a-marker preset="custom" type="pattern" url="./pattern-patt/pattern-dvddrive.patt">-->
-		  <a-entity
-		      position="0 0 0"
-		      id="animated-model11"
-		      gltf-model="#animated-asset11"
-		      scale="1.50 1.50 1.50"
-		      class="clickable"
-		      gesture-handler>
-		  </a-entity>
-      	</a-marker>
-		
-      <!--<a-marker preset="custom" type="pattern" url="./pattern/right_arm.patt">
+      <a-marker preset="custom" type="pattern" url="./pattern-patt/pattern-pc.patt">
           <a-entity
               position="0 0 0"
               id="animated-model7"
@@ -222,37 +100,37 @@
           </a-entity>
       </a-marker>
 
-      <a-marker preset="custom" type="pattern" url="./pattern/right_hand.patt">
+      <a-marker preset="custom" type="pattern" url="./pattern-patt/pattern-gpu.patt">
           <a-entity
               position="0 0 0"
               id="animated-model8"
               gltf-model="#animated-asset8"
-              scale="1.75 1.75 1.75"
+              scale="1.00 1.00 1.00"
 	      animation="property: rotation; dur: 10000; to: 0 360 0; easing: linear; loop: true">
           </a-entity>
       </a-marker>
 
-      <a-marker preset="custom" type="pattern" url="./pattern/right_leg.patt">
+      <a-marker preset="custom" type="pattern" url="./pattern-patt/pattern-cooler.patt">
           <a-entity
               position="0 0 0"
               id="animated-model9"
               gltf-model="#animated-asset9"
-              scale="1.75 1.75 1.75"
+              scale="1.00 1.00 1.00"
 	      animation="property: rotation; dur: 10000; to: 0 360 0; easing: linear; loop: true">
           </a-entity>
       </a-marker>
 
-      <a-marker preset="custom" type="pattern" url="./pattern/ribs.patt">
+      <a-marker preset="custom" type="pattern" url="./pattern-patt/pattern-dvddrive.patt">
           <a-entity
               position="0 0 0"
               id="animated-model10"
               gltf-model="#animated-asset10"
-              scale="1.75 1.75 1.75"
+              scale="1.00 1.00 1.00"
 	      animation="property: rotation; dur: 10000; to: 0 360 0; easing: linear; loop: true">
           </a-entity>
       </a-marker>
 
-      <a-marker preset="custom" type="pattern" url="./pattern/skull.patt">
+      <a-marker preset="custom" type="pattern" url="./pattern-patt/pc-desk.patt">
           <a-entity
               position="0 0 0"
               id="animated-model11"
@@ -260,27 +138,17 @@
               scale="2 2 2"
 	      animation="property: rotation; dur: 10000; to: 0 360 0; easing: linear; loop: true">
 	  </a-entity>
-      </a-marker>-->
+      </a-marker>
       
-      <!-- add dancing skeleton -->
-  <!--<a-marker markerhandler preset="custom" type="pattern" url="./pattern/dancing_skeleton.patt"  emitevents="true" cursor="rayOrigin: mouse">
-          <a-entity
-              position="0 0 0"
-              id="animated-model12"
-              gltf-model="#animated-asset12"
-              scale="15 15 15" animation-mixer soundhandler>
-          </a-entity>-->
-	      
      		<!--<a-entity id="animated-marker12" sound="src: #sound" autoplay="false"></a-entity>-->
 	      
-      <!--</a-marker>-->
+      </a-marker>
 	
-	    <!--<a-entity id="animated-marker12" sound="src: #sound" autoplay="false"> </a-entity>-->
 	    
       <a-entity camera></a-entity>
     </a-scene>
 
-    <!-- add splash screen javascript
+    <!-- add splash screen javascript-->
       <script>
         const overlay = document.querySelector(".overlay");
     	const startBtn = overlay.querySelector("button");
@@ -288,31 +156,11 @@
     	startBtn.addEventListener("click", function(){
       	overlay.style.display = "none";    
     	});
-      </script>-->
-	    
-
-	<!--test zoom out-in model
-	<script>
-		AFRAME.registerComponent('markerhandler', {
-
-		    init: function() {
-			const animatedMarker = document.querySelector("#animated-marker");
-			const aEntity = document.querySelector("#animated-model");
-
-			// every click, we make our model grow in size :)
-			animatedMarker.addEventListener('click', function(ev, target){
-			    const intersectedElement = ev && ev.detail && ev.detail.intersectedEl;
-			    if (aEntity && intersectedElement === aEntity) {
-				const scale = aEntity.getAttribute('scale');
-				Object.keys(scale).forEach((key) => scale[key] = scale[key] + 1);
-				aEntity.setAttribute('scale', scale);
-			    }
-			});
-		}});	    
-	</script>-->
+      </script>
+    
 	  
-    <!-- add sound query select javascript-->
-      <!--<script>
+    <!-- add sound query select javascript
+      <script>
 	AFRAME.registerComponent('soundhandler', {
 	    tick: function () {
 		   var entity = document.querySelector('[sound]');
@@ -323,7 +171,7 @@
 		}
 	     }
 	});
-	</script>-->
+	</script> -->
 	  
 	  <!-- test FPS
 	  <script>
