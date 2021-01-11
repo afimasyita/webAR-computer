@@ -26,29 +26,7 @@
 
 
 
-<!-- PROJECT LOGO -->
-<br />
-<p align="center">
-  <a href="https://github.com/github_username/repo">
-    <img src="images/logo.png" alt="Logo" width="80" height="80">
-  </a>
-
-  <h3 align="center">Web Based Augmented Reality</h3>
-
-  <p align="center">
-    Interactive AR Skeleton
-    <br />
-    <a href="https://suwung-inc.github.io"><strong>:see_no_evil: SUWUNG :see_no_evil:</strong></a>
-    <br />
-    <br />
-    <a href="https://suwung-inc.github.io/WebBased-AR-Interactive-BioEducation-App/">View Demo</a>
-    ·
-    <a href="suwung-inc/WebBased-AR-Interactive-BioEducation-App/issues">Report Bug</a>
-    ·
-    <a href="suwung-inc/WebBased-AR-Interactive-BioEducation-App/issues">Request Feature</a>
-  </p>
-</p>
-
+## web ar
 
 
 
